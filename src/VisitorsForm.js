@@ -39,9 +39,19 @@ const VisitorsForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Submit the form data to your backend API
+    // Sanitize the form data (trim any unnecessary whitespaces)
+    const sanitizedData = {
+      any_appointment: formData.any_appointment,
+      purpose_of_visit: formData.purpose_of_visit.trim(),
+      type_of_visit: formData.type_of_visit.trim(), // Trimming whitespace
+      visitors_address: formData.visitors_address.trim(),
+      visitors_name: formData.visitors_name.trim(),
+      whom_to_see: formData.whom_to_see.trim(),
+    };
+
+    // Submit the sanitized form data to your backend API
     axios
-      .post("https://ibile-fd.onrender.com/api/v1/visitors-form", formData, {
+      .post("https://ibile-fd.onrender.com/api/v1/visitors-form", sanitizedData, {
         headers: {
           "Content-Type": "application/json",
         },

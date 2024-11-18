@@ -29,9 +29,13 @@ const VisitorsForm = () => {
   // Handle form input change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
+
+    // Trim the value if it's a text input or textarea
+    const sanitizedValue = type === "text" || type === "textarea" ? value.trim() : value;
+
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : sanitizedValue,
     }));
   };
 
@@ -39,19 +43,9 @@ const VisitorsForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Sanitize the form data (trim any unnecessary whitespaces)
-    const sanitizedData = {
-      any_appointment: formData.any_appointment,
-      purpose_of_visit: formData.purpose_of_visit.trim(),
-      type_of_visit: formData.type_of_visit.trim(), // Trimming whitespace
-      visitors_address: formData.visitors_address.trim(),
-      visitors_name: formData.visitors_name.trim(),
-      whom_to_see: formData.whom_to_see.trim(),
-    };
-
-    // Submit the sanitized form data to your backend API
+    // Submit the form data to your backend API
     axios
-      .post("https://ibile-fd.onrender.com/api/v1/visitors-form", sanitizedData, {
+      .post("https://ibile-fd.onrender.com/api/v1/visitors-form", formData, {
         headers: {
           "Content-Type": "application/json",
         },

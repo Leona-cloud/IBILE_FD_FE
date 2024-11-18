@@ -41,7 +41,11 @@ const VisitorsForm = () => {
 
     // Submit the form data to your backend API
     axios
-      .post("https://ibile-fd.onrender.com/api/v1/visitors-form", formData) // Replace with your API endpoint
+      .post("https://ibile-fd.onrender.com/api/v1/visitors-form", formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         alert("Visitor form submitted successfully");
       })

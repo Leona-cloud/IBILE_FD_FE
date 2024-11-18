@@ -29,10 +29,10 @@ const VisitorsForm = () => {
   // Handle form input change
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
-    // Trim the value if it's a text input or textarea
-    const sanitizedValue = type === "text" || type === "textarea" ? value.trim() : value;
-
+  
+    // Trim the value if it's a text input or textarea and not the 'purpose_of_visit' field
+    const sanitizedValue = name === "purpose_of_visit" ? value : (type === "text" || type === "textarea" ? value.trim() : value);
+  
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "checkbox" ? checked : sanitizedValue,

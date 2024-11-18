@@ -1,0 +1,161 @@
+/* Add this wrapper around your form in the JSX */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  background-color: #f9f9f9; /* Optional: Adds a light background */
+  box-sizing: border-box; /* Include padding and border in element's width and height */
+  padding: 20px; /* Ensure spacing for smaller screens */
+  margin: 0; /* Remove any default margin */
+}
+
+/* General Form Styles */
+form {
+  background-color: #fff;
+  max-width: 600px;
+  width: 100%; /* Ensures responsiveness */
+  margin: 0 auto; /* Centers horizontally if needed */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 80px;
+  height: auto;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-top: 10px;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+div {
+  margin-bottom: 18px;
+}
+
+/* Label Styling */
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* Input Fields and Select Styling */
+input[type="text"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.4); /* Subtle focus effect */
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    padding: 20px;
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  div {
+    margin-bottom: 15px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  div {
+    margin-bottom: 12px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

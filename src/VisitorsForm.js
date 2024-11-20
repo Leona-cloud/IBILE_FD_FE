@@ -57,6 +57,15 @@ const VisitorsForm = () => {
       })
       .then((response) => {
         alert("Visitor form submitted successfully");
+
+        setFormData({
+          visitors_name: "",
+          visitors_address: "",
+          whom_to_see: "",
+          any_appointment: false,
+          type_of_visit: "",
+          purpose_of_visit: "",
+        });
       })
       .catch((error) => {
         alert("Error submitting form");
